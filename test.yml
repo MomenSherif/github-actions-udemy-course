@@ -1,0 +1,28 @@
+name: momen
+age: 25
+address:
+  country: Egypt
+  city: obour
+position: Frontend Developer
+skills:
+  - HTML
+  - CSS
+  - JavaScript
+  - React
+  - ...etc
+
+arrayOfObjects:
+  - key: value
+    key2: value2
+  - key: value
+    key2: value2
+
+longTextWithoutNewLine: >
+  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+  Quasi, veritatis nisi. Expedita fugit, doloremque dicta
+  incidunt eum at sed nisi?
+
+longTextwithNewLine: |
+  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+  Quasi, veritatis nisi. Expedita fugit, doloremque dicta
+  incidunt eum at sed nisi?
