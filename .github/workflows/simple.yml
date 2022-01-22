@@ -20,6 +20,7 @@ jobs:
         shell: python
   run-windows-commands:
     runs-on: windows-latest
+    needs: run-shell-command # one job or array of jobs
     steps:
       - name: Directory PowerShell # windows default shell [pwsh]
         run: Get-Location
