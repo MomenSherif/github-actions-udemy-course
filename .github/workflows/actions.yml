@@ -1,6 +1,13 @@
 name: Github Actions
 
-on: push
+on:
+  push:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - assigned
+      - closed
 
 jobs:
   run-github-actions:
