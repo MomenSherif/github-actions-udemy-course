@@ -1,16 +1,20 @@
 name: Github Actions
 
 on:
-  # schedule:
-  #   # Cron schedule expression "minutes hours dayOfThemounth mounth dayOfTheWeek"
-  #   # https://crontab.guru/ cool tool
-  #   # https://crontab.guru/examples.html examples
-  #   # "1 * * * *" ex: will run at minute 1 every hour (* any time)
-  #   # "1,2 * * *" minute 1 & 2
-  #   # "1-5 * * *" from minute 1 to 5
-  #   # "0/15 * * *" from minute 0 and step is 15
-  #   - cron: "1 * * * *"
-  # push:
+  push:
+    branches: # Filter by branches
+      - master
+      - "feature/*" # feature/featA
+      - "feature/**" # feature/feat/a
+      - "!feature/featC" # ignore
+    # branches-ignore: ignore branches (can't be used with branches at the same time)
+    tags:
+      - "v1.*"
+    # tags-ignore:
+    paths:
+      - **.js
+    # paths-ignore:
+
   workflow_dispatch: # manually trigger -> can accept inputs
   repository_dispatch: # trigger workflow by post request
     types:
@@ -21,6 +25,15 @@ on:
       - reopened
       - assigned
       - closed
+# schedule:
+#   # Cron schedule expression "minutes hours dayOfThemounth mounth dayOfTheWeek"
+#   # https://crontab.guru/ cool tool
+#   # https://crontab.guru/examples.html examples
+#   # "1 * * * *" ex: will run at minute 1 every hour (* any time)
+#   # "1,2 * * *" minute 1 & 2
+#   # "1-5 * * *" from minute 1 to 5
+#   # "0/15 * * *" from minute 0 and step is 15
+#   - cron: "1 * * * *"
 
 jobs:
   run-github-actions:
