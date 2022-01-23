@@ -12,7 +12,7 @@ on:
       - "v1.*"
     # tags-ignore:
     paths:
-      - **.js
+      - "**.js"
     # paths-ignore:
 
   workflow_dispatch: # manually trigger -> can accept inputs
