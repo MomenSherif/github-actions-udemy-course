@@ -11,6 +11,10 @@ on:
   #   # "0/15 * * *" from minute 0 and step is 15
   #   - cron: "1 * * * *"
   # push:
+  workflow_dispatch: # manually trigger -> can accept inputs
+  repository_dispatch: # trigger workflow by post request
+    types:
+      - blabla # specified in the post request body
   pull_request:
     types:
       - opened
