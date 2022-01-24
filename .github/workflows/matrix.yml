@@ -1,0 +1,21 @@
+name: Matrix
+
+on:
+  push:
+
+jobs:
+  node-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log node version
+        run: |
+          node -v
+          npm -v
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 6
+      - name: Log node version after node Setup
+        run: |
+          node -v
+          npm -v
