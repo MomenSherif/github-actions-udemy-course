@@ -5,9 +5,11 @@ on: pull_request
 jobs:
   run-shell-command:
     runs-on: ubuntu-latest
+    # timeout-minutes: 360 # can be for a job or a step
     steps:
       - name: echo a string
         run: echo "Hello, World! 🚀"
+        # continue-on-error: true
       - name: multiline JavaScript
         run: |
           node -v
