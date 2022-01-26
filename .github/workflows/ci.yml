@@ -7,6 +7,7 @@ on:
   push:
     branches:
       - development
+  workflow_dispatch:
 
 jobs:
   build:
@@ -33,5 +34,5 @@ jobs:
         run: npm run build
 
       - name: Deploy to "Surge"
-        if: github.event == 'push'
+        if: github.event_name == 'push'
         run: npx surge --project ./build --domain ghactions-staging.surge.sh --token ${{ secrets.SURGE_TOKEN }}
