@@ -1,7 +1,8 @@
 name: Matrix
 
 on:
-  push:
+  # push:
+  pull_request:
 
 jobs:
   node-version:
