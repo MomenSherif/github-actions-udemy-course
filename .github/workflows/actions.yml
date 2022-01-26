@@ -4,15 +4,15 @@ on:
   push:
     branches: # Filter by branches
       - master
-      - "feature/*" # feature/featA
-      - "feature/**" # feature/feat/a
-      - "!feature/featC" # ignore
+      - 'feature/*' # feature/featA
+      - 'feature/**' # feature/feat/a
+      - '!feature/featC' # ignore
     # branches-ignore: ignore branches (can't be used with branches at the same time)
     tags:
-      - "v1.*"
+      - 'v1.*'
     # tags-ignore:
     paths:
-      - "**.js"
+      - '**.js'
     # paths-ignore:
 
   workflow_dispatch: # manually trigger -> can accept inputs
