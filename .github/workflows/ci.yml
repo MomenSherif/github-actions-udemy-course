@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/cheakout@v2
 
       - name: Setup Node
         uses: actions/setup-node@v2
@@ -81,3 +81,19 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           flags: unittests
           name: jest-react
+
+      - name: Open issue on fail
+        if: failure() && github.event_name == 'push'
+        uses: actions-ecosystem/action-create-issue@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          title: ${{ github.ref }} - ${{ github.event_name }}
+          body: |
+            ## This week's TODO
+
+            - [ ] Have a meeting with UX team
+            - [ ] Check the dashboard
+
+          labels: |
+            meeting
+            weekly
