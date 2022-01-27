@@ -1,6 +1,6 @@
 {
   "name": "github-actions-udemy",
-  "version": "0.1.0",
+  "version": "0.0.0-development",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
@@ -18,7 +18,8 @@
     "test:ci": "cross-env CI=true react-scripts test --coverage",
     "prettier:check": "prettier . --check --ignore-unknown --ignore-path .gitignore",
     "prettier:fix": "prettier . --write --ignore-unknown --ignore-path .gitignore",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "semantic-release": "semantic-release"
   },
   "eslintConfig": {
     "extends": [
@@ -40,6 +41,11 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
-    "prettier": "2.5.1"
+    "prettier": "2.5.1",
+    "semantic-release": "^19.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MomenSherif/github-actions-udemy-course.git"
   }
 }

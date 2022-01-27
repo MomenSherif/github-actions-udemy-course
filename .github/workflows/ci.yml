@@ -4,9 +4,11 @@ on:
   workflow_dispatch:
   pull_request:
     branches:
+      - master
       - development
   push:
     branches:
+      - master
       - development
 
 jobs:
@@ -50,6 +52,12 @@ jobs:
 
       - name: build
         run: npm run build
+
+      - name: Create a release
+        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+        run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Deploy to "Surge"
         if: github.event_name == 'push'
