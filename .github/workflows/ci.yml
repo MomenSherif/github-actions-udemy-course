@@ -53,6 +53,12 @@ jobs:
       - name: build
         run: npm run build
 
+      - name: ZIP Assets
+        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+        run: |
+          zip -r build.zip ./build
+          zip -r coverage.zip ./coverage
+
       - name: Create a release
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
         run: npx semantic-release
