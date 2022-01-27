@@ -10,7 +10,8 @@ on:
     branches:
       - master
       - development
-
+# For better dependency and readability
+# Make multiple jobs with the help of actions/download-artifact
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -65,6 +66,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Deploy to "Surge"
-        if: github.event_name == 'push'
+      - name: Deploy to Staging "Surge"
+        if: github.event_name == 'push' && github.ref == 'refs/heads/development'
         run: npx surge --project ./build --domain ghactions-staging.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+
+      - name: Deploy to Production "Surge"
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        run: npx surge --project ./build --domain ghactions.surge.sh --token ${{ secrets.SURGE_TOKEN }}
