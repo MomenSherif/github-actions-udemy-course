@@ -37,7 +37,7 @@ jobs:
             ${{ runner.os }}-
 
       - name: Install Dependencies
-        run: npm cii --ignore-scripts
+        run: npm ci --ignore-scripts
 
       - name: Code Quality
         run: npm run prettier:check
