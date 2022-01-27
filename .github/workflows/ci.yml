@@ -73,3 +73,11 @@ jobs:
       - name: Deploy to Production "Surge"
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         run: npx surge --project ./build --domain ghactions.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+
+      - name: Upload coverage report "CodeCov"
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          flags: unittests
+          name: jest-react
